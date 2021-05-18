@@ -1,0 +1,23 @@
+
+
+<h1>All yours order</h1>
+
+
+<% if @dealer %>
+  <%= link_to "Add New Order", new_dealer_order_path(@dealer) %><br>
+<br><br>
+<h4>Dealer Name: <%=link_to @dealer.dealer_name %>'s Order</h4>
+<% else %>
+  <h3>All Order Date</h3><br>
+  
+   <h4> <%= link_to "Add New Order", new_order_path(@order) %></h4><br>
+<% end %>
+
+<% @orders.each do |d| %>
+<br>
+<% if @dealer %>
+Delivery Date: <%=link_to d.convert_datetime_to_long_format, dealer_order_path( @dealer,d) %><br>
+<% else %>
+ Delivery Date: <%=link_to d.convert_datetime_to_long_format, order_path(d) %>
+<% end %>
+<% end %>

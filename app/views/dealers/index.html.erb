@@ -1,0 +1,37 @@
+<h1>Delears</h1>
+
+<table>
+<tr>
+    <th>Dealer Name &nbsp; &nbsp; &nbsp;</th>
+    <th>Total Order &nbsp; &nbsp; &nbsp;</th>
+    <th>Add Order &nbsp; &nbsp; &nbsp;</th>
+  </tr>
+<%= flash[:message] %>
+
+<% Dealer.all.each do |t| %>
+<tr>
+<td><%= link_to t.dealer_name, dealer_path(t) %></td>
+ <td><%= t.number_of_orders %> </td>
+ <td><%= link_to "Add Order", dealer_orders_path(t) %> </td>
+ </tr>
+<% end %>
+</table>
+<h1><%= link_to "Recent Order" , order_new_path  %></h1>
+
+<table>
+<tr>
+<th>Dealer Name</th>
+<th>Delivery Date</th>
+<th>Order Date</th>
+</tr>
+
+<% @order.each do |order| %>
+<tr>
+<th><%= order.dealer.dealer_name %> </th>
+ <th><%= order.order_date %> </th>
+ <th><%= order.created_at.strftime("%A, %d %b %Y - %l:%M %p") %> </th>
+
+ </tr>
+<% end %>
+
+</table>

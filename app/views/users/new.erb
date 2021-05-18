@@ -1,0 +1,25 @@
+
+  <div class="container">
+
+
+<h1>Singup Here</h1>
+<h1> Google Log in</h1>
+<%= button_to 'Google', '/auth/google_oauth2' %>
+
+<%= render partial: '/errors/errors', locals: {obj: @user }%>
+
+<%= form_with model: @user, local: true do |f| %>
+
+<%= f.label :username %>
+<%= f.text_field :username, autofocus: true %>
+<br>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+<br>
+
+<%= f.submit "Signup" %>
+</div>
+<% end %>
+
+

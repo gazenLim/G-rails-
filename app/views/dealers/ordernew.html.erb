@@ -1,0 +1,21 @@
+<h1>All Order</h1>
+<table>
+<tr>
+<th>Dealer Name</th>
+
+<th>Order Date</th>
+</tr>
+
+<% Order.all.each do |order| %>
+
+<td><%= order.dealer.dealer_name %>  </td>
+
+<td><%= order.updated_at.strftime("%A, %d %b %Y - %l:%M %p")%> </td>
+
+
+
+</tr>
+<% end %>
+
+
+</table>

@@ -1,0 +1,7 @@
+<h1>Add New Dealers</h1>
+
+<%= form_for @dealer do |d| %>
+<%= d.label :dealer_name %>
+<%= d.text_field :dealer_name %>
+<%= d.submit %>
+<% end %>

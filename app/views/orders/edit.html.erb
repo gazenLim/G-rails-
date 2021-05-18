@@ -1,0 +1,8 @@
+<h1>Add yours new Order</h1>
+<% if @order.errors.any? %>
+        <h5 class="error"><%= @order.errors.full_messages.to_sentence %></h5>
+<% end %>
+
+
+
+<%= render 'form' %>

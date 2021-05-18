@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <ul>
+ <li><%= link_to "Home", dealers_path %> </li>
+<li><%= link_to "Add New Dealer", new_dealer_path %></li>
+<li><%= link_to "All Orders", orders_path %>  </li>
+<li><%= link_to "New Orders", new_order_path %> </li>
+<li><%= link_to "Recent Orders", order_new_path %></li>
+ <li style="float:right" ><%= button_to "Log Out", logout_path, method: :delete %></li>
+
+  
+  </ul>
+  
+  
+  
+  
+   
+  </head> 
+  <body>
+<h1>Order for Dealers</h1>
+<br>
+
+
+
+
+
+
+
+<% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
+      <%= render 'layouts/nav' %>
+
+    <%= yield %>
+
+      <%= render '/layouts/footer' %>
+
+ 
+  </body>
+ 
+</html>

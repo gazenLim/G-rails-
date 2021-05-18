@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+
+<%= form_with model: [@dealer, @order], local: true do |o| %>
+
+<% if @dealer %>
+<%= o.hidden_field :dealer_id, value: @dealer.id %>
+<% else %>
+
+<%= o.label :dealer_name  %>
+<%= o.collection_select :dealer_id, Dealer.all, :id, :dealer_name %>
+<% end %>
+
+<br><br><br>
+<%= o.label :"Delivery Date" %>
+<%= o.date_field :order_date %><br><br>
+<%= o.label :order_price %>
+<%= o.number_field :order_price, step: :any %><br>
+
+<br>
+<%= o.label :product_name %>
+<%= o.collection_select  :product_id, Product.all, :id, :product_name %>
+<br><br>
+
+
+
+
+
+<%= o.submit %>
+
+<% end %>

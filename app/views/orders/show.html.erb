@@ -1,0 +1,24 @@
+
+<h1>Your order details</h1>
+
+
+
+
+<% if @dealer %>
+<hr>
+<h2>Dealer Name: <%= @dealer.dealer_name %>'s Orders</h2>
+<% else %>
+<h3>All Yours Order</h3>
+
+<% end %>
+
+
+<h4>Delevery Date: <%= @order.convert_datetime_to_long_format  %></h4>
+<h4>Order Product: <%= @order.product.product_name  %></h4>
+<h4>Order Price: <%= @order.order_price  %></h4>
+
+
+<%= link_to("delete order",order_path(@order), method: 'delete' )%> |
+<%= link_to "Edit your Order", edit_order_path( @order) %>
+
+
